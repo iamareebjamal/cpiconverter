@@ -1,126 +1,146 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentView"
+    android:background="#2e2e2e"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentTop="true"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_centerHorizontal="true"
+        android:background="#8726e4"
+        android:gravity="center"
+        android:orientation="horizontal" >
 
-        <LinearLayout
-            android:id="@+id/linearLayout1"
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="10dp"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/gradient"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout2" >
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="45.0dip"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:background="#33b5e5"
-            android:gravity="center"
-            android:orientation="vertical" >
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/cpiInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Enter CPI here"
+                    android:textColor="#bbbbbb"
+                    android:inputType="numberDecimal"
+                    android:layout_marginRight="5dp"
+                    android:maxLength="5" >
+                </EditText>
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="40.0dip"
+                    android:layout_height="40.0dip"
+                    android:onClick="calculate"
+                    android:src="@drawable/done" />
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/textView1"
+                android:id="@+id/percText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CPI Converter"
-                android:textColor="#eeeeee"
-                android:textSize="18.0sp" />
-        </LinearLayout>
+                android:layout_below="@+id/linearLayout3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text=""
+                android:textSize="25sp" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="3.0dip"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/linearLayout1"
-            android:background="#3a9dd5"
-            android:orientation="vertical" >
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/linearLayout2"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal" >
-
-            <EditText
-                android:id="@+id/cpiInput"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:id="@+id/hiddenLayout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="Enter CPI here"
-                android:inputType="numberDecimal"
-                android:maxLength="5" >
-            </EditText>
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/percText"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:orientation="vertical" >
 
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="40.0dip"
-                android:layout_height="40.0dip"
-                android:onClick="calculate"
-                android:src="@drawable/done" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/circleView"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/circle_view"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:shadowColor="#33333333"
+                    android:shadowDx="2"
+                    android:shadowDy="2"
+                    android:shadowRadius="10"
+                    android:text="A+"
+                    android:textColor="#99ffffff"
+                    android:textSize="50sp"
+                    android:clickable="true"
+                    android:onClick="shhh"
+                    android:textStyle="normal" />
 
-        <TextView
-            android:id="@+id/percText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/linearLayout3"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
-            android:gravity="center"
-            android:text=""
-            android:textSize="25sp" />
-        
-        <LinearLayout
-            android:id="@+id/hiddenLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/percText"
-            android:layout_marginTop="30dp"
-            android:gravity="center"
-            android:orientation="vertical" >
+                <TextView
+                    android:id="@+id/remarkText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Outstanding"
+                    android:textColor="#33b5e5"
+                    android:textSize="30sp" />
 
-        <TextView
-            android:id="@+id/circleView"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:background="@drawable/circle_blue"
-            android:gravity="center"
-            android:padding="20dp"
-            android:shadowColor="#33333333"
-            android:shadowDx="2"
-            android:shadowDy="2"
-            android:shadowRadius="10"
-            android:text="A+"
-            android:textColor="#99ffffff"
-            android:textSize="50sp"
-            android:textStyle="normal" />
+                <TextView
+                    android:id="@+id/divisionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="1st Division" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
 
-        <TextView
-            android:id="@+id/remarkText"
-            android:layout_marginTop="20dp"
-            android:textSize="30sp"
-            android:textColor="#33b5e5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Outstanding" />
+    <ImageView
+        android:id="@+id/aboutButton"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/about" />
 
-        <TextView
-            android:id="@+id/divisionText"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1st Division" />
-        
-        </LinearLayout>
-    </RelativeLayout>
-
-</ScrollView>
+</RelativeLayout>
